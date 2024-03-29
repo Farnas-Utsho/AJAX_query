@@ -1,0 +1,60 @@
+Interaction Using Json :
+
+PHP to JSON :
+=> Json_encode() : Convert  PHP data into a JSON string. 
+
+Example:
+php code :
+php_data = array("name"=>"John","age"=>30,"city"=>"New York");
+$json_data= json_encode($   php_data); //converting php data to json format
+echo $json_data;
+// Output : {"name":"John","age":30,"city":"New York"}
+
+
+Json to PHP :
+=> json_decode() function is used for decoding the JSON data and converting it back to a PHP variable.
+Example:
+<?php
+$json_data='{"name":"John","age":30,"city":"New York"}";
+$php_data = json_decode($json_data,true); //decoding json to php
+print_r($php_data);
+?>
+Output : Array ( [name] => John [age] => 30 [city] => New York )        
+
+Note : In second example we passed true as an argument in json_decode() so that returned object will be converted to associative array</
+
+Json :
+=>JSON.parse(): Parse a JSON Data and convert it into a JavaScript object 
+js code : 
+var obj = JSON.parse('{"name":"John","age":30,"city":"New York"}');
+console.log(obj.name); //Output : John  
+
+
+
+
+
+=>JSON.stringify(): Convert a JavaScript object into a JSON string
+var jsonObject = {
+    "name": "John Doe",
+    "age": 30,
+    "isStudent": false,
+    "address": {
+        "city": "New York",
+        "country": "USA"
+    },
+    "hobbies": ["reading", "traveling", "cooking"]
+};
+
+var jsonString = JSON.stringify(jsonObject);
+
+console.log(jsonString);
+
+//Output
+{
+    "name": "John Doe",
+    "age": 30,
+    "isStudent": false,
+    "address": { "city": "New York", "country": "USA" },
+    "hobbies": ["reading", "traveling", "cooking"]
+}
+

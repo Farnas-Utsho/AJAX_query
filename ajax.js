@@ -1,5 +1,5 @@
-console.log("Ajax Tutorial in one Video");
-let fetchbtn = document.getElementById("fetchBtn");
+// console.log("Ajax Tutorial in one Video");
+ let fetchbtn = document.getElementById("fetchBtn");
 fetchbtn.addEventListener("click", buttonClickHandeler);
 function buttonClickHandeler() {
   console.log("Button has been Clicked");
@@ -30,5 +30,43 @@ function buttonClickHandeler() {
 params= `{"name":"test5645","salary":"123","age":"23"} `;
 xhr.send(params);
 console.log("We are done");
+
+}
+
+let popbtn = document.getElementById("popbtn");
+popbtn.addEventListener('click',pophandler)
+function pophandler(){
+  console.log(" Pop Button has been Clicked");
+  //Instantiate an xhr object
+  const xhr = new XMLHttpRequest();
+  
+  xhr.open('GET','https://jsonplaceholder.typicode.com/posts',true) 
+ 
+
+  //What to do when response is ready
+  xhr.onload = function () {
+    //checking status if response is ok
+    if(this.status===200){ 
+
+      let obj=JSON.parse(this.responseText);
+     // console.log(obj)
+     let list =document.getElementById('list');
+     str = '';
+     for( key in obj)
+      str +=`<li>${obj[key]}</li>`
+    list.innerHTML =str;
+    }
+    else {
+        console.log("Something is wrong")
+    }
+
+  
+  };
+
+  //send the request
+  xhr.send();
+
+
+
 
 }
